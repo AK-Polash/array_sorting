@@ -1,6 +1,22 @@
 let heading = document.querySelector(".heading");
-let arr = [2, 1, 7, 3, 5, 6, 9, 11, 10, 15, 14, 12, 13, 4];
+let numArray = [3, 1, 10, 20];
 
-heading.innerHTML = arr.sort((a, b) => {
-  return a - b;
-});
+for (i = 0; i < numArray.length - 1; i++) {
+  let min = i;
+
+  for (j = i + 1; j < numArray.length; j++) {
+    if (numArray[j] < numArray[min]) {
+      min = j;
+    }
+  }
+
+  if (min != i) {
+    let target = numArray[i];
+    numArray[i] = numArray[min];
+    numArray[min] = target;
+  }
+}
+
+console.log(numArray);
+
+heading.innerHTML = numArray;
